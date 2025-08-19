@@ -17,6 +17,40 @@
 | info: | 顯示某網站的基本資訊（快取、相似頁面、連結） |
 </details>
 
+<details>
+  <summary>Module 03: Scanning Networks</summary>
+
+* Lab 1: Host Discovery
+
+```console
+nmap -sn -PR [Traget IP Address]
+  -sn: disables port scan
+
+  -PR: ARP ping scan
+  -PU: UDP ping scan
+  -PE: ICMP ECHO ping scan
+  -PP: ICMP timestamp ping scan
+  -PM: ICMP Address mask ping scan
+  -PS: TCP SYN ping scan
+  -PA: TCP ACK ping scan
+  -PO: IP Protocol ping scan
+```
+
+* Lab 2: Port and Service Discovery
+
+```Console
+nmap -sT -v [Traget IP Address]
+  -v: enables the verbose output (include all hosts and ports in the output)
+
+  -sT: TCP connect/full open scan
+  -sS: stealth scan/TCP helf-open scan
+  -sX: Xmas scan
+  -sM: TCP Maimon scan
+  -sA: ACK flag probe scan
+  -sU: UDP scan
+```
+</details>
+
 # kali 基本建置
 
 <details>
