@@ -2,6 +2,7 @@ import sys
 import time
 from PyQt6.QtWidgets import QApplication, QWidget, QLabel, QTextEdit, QPushButton, QVBoxLayout, QMessageBox
 from PyQt6.QtGui import QFont
+from PyQt6.QtCore import Qt
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select, WebDriverWait
@@ -15,16 +16,21 @@ class RepairForm(QWidget):
 
         layout = QVBoxLayout()
 
+        # 標籤
         label = QLabel("請輸入報修問題：")
         label.setFont(QFont("Arial", 22))
         layout.addWidget(label)
 
-        # QTextEdit 支援 IME 預輸入文字，字體大小設定即可
+        # QTextEdit 支援 IME 預輸入文字，字體大小設定 22，自動換行
         self.text_box = QTextEdit()
         self.text_box.setFont(QFont("Arial", 22))
         self.text_box.setPlaceholderText("這邊輸入你想問的問題...")
+        self.text_box.setAcceptRichText(False)  # 禁用富文本，避免選字錯亂
+        self.text_box.setLineWrapMode(QTextEdit.LineWrapMode.WidgetWidth)  # 自動換行
+        self.text_box.setFocus()  # 聚焦，確保 IME 可用
         layout.addWidget(self.text_box)
 
+        # 送出按鈕
         submit_btn = QPushButton("送出")
         submit_btn.setFont(QFont("Arial", 22))
         submit_btn.setStyleSheet("background-color: #4CAF50; color: white;")
@@ -73,6 +79,10 @@ class RepairForm(QWidget):
         self.close()
 
 if __name__ == "__main__":
+    # 啟用高 DPI 支援，改善 IME 輸入問題
+    QApplication.setAttribute(Qt.ApplicationAttribute.AA_EnableHighDpiScaling)
+    QApplication.setAttribute(Qt.ApplicationAttribute.AA_EnableHighDpiPixmaps)
+
     app = QApplication(sys.argv)
     window = RepairForm()
     window.show()
