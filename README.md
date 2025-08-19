@@ -48,6 +48,50 @@ nmap -sT -v [Traget IP Address]
   -sM: TCP Maimon scan
   -sA: ACK flag probe scan
   -sU: UDP scan
+  -sI: IDLE/IPID Heard scan
+  -sY: SCTP INIT scan
+  -sZ: SCTP cookie ECHO scan
+
+nmap -sV [Traget IP Address]
+  -sV: detects service versions
+nmap -A [Traget IP Address]
+  -A: enables aggressiv scan
+```
+
+* Lab 3: OS Discovery
+
+| System | Time to Live | TCP Size |
+| --- | --- | --- |
+| Linux | 64 | 5840 |
+| FreeBSD | 64 | 65535 |
+| OpenBSD | 255 | 16384 |
+| Windows | 128 | 65535 bytes to 1 Gigabyte |
+| Cisco Routers | 255 | 4128 |
+| Solaris | 255 | 8760 |
+| AIX | 255 | 16384 |
+
+```Console
+nmap -A [Traget IP Address]
+  -A: aggressive scan
+nmap -O [Traget IP Address]
+  -O: OS discovery
+nmap --script smb-os-discovery.nse [Traget IP Address]
+  --script: specifies the customized script
+  smb-os-discovery.nse: attempts to determine the OS, computer name, domain, workgroup, and current time over the SMB protocol (ports 445 or 139)
+```
+
+* Lab 4: Scan beyond IDS and Firewall
+
+```Console
+nmap -f [Traget IP Address]
+  -f: switch is used to split the IP packet into tiny fragment packets
+nmap -g 80 [Traget IP Address]
+  -g or --source-port: source port manipulation
+nmap -mtu 8 [Traget IP Address]
+  -mtu: specifies the number of Maximum Transmission Unit (here,8 bytes of packets)
+nmap -D RND:10 [Traget IP Address]
+  -D: decoy scan
+  RND: generates a random and non-reserved IP addresses (here,10)
 ```
 </details>
 
