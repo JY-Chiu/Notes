@@ -10,7 +10,7 @@
 ## kali 基本建置
 
 <details>
-  <summary>更新資料庫動作</summary>
+  <summary>更新資料庫</summary>
 
 ```console
 sudo apt update
