@@ -101,7 +101,8 @@ nmap -sT -Pn --spoof-mac 0 [Traget IP Address]
 * Lab 5: Network Scanning using Verious Scanning Tools
 
 ```Console
-
+msfconsole
+  nmap -Pn -sS -A -oX Test 10.10.1.0/24
 ```
 </details>
 
