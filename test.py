@@ -5,7 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 import time
 
 driver = webdriver.Chrome()
-driver.get("http://www.stc.com.tw/client_handle/nkp.jsp?en=J1QSWuwdyZtjxwn0Y4gNMK0LTJpQf69ei8aUdV58xNY=")
+
 
 wait = WebDriverWait(driver, 10)
 
