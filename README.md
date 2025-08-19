@@ -92,6 +92,16 @@ nmap -mtu 8 [Traget IP Address]
 nmap -D RND:10 [Traget IP Address]
   -D: decoy scan
   RND: generates a random and non-reserved IP addresses (here,10)
+nmap -sT -Pn --spoof-mac 0 [Traget IP Address]
+  --spoof-mac 0: represents randomizing the MAC address
+  -sT: TCP connect/full open scan
+  -Pn: skip the host discovery
+```
+
+* Lab 5: Network Scanning using Verious Scanning Tools
+
+```Console
+
 ```
 </details>
 
