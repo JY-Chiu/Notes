@@ -1,13 +1,22 @@
-# Notes
+# CEH-Practical-V13
 <details>
-  <summary></summary>
+  <summary>Module 02: Footprinting and Reconnaissance</summary>
 
+* Lab1: Google Search
 ```console
-
+cache: 顯示 Google 上一次快取的網頁版本
+allinurl: 搜尋網址（URL）中包含所有指定關鍵字的頁面
+inurl: 搜尋網址中包含指定關鍵字的頁面（單一條件）
+allintitle: 搜尋網頁標題（title）中含有所有指定關鍵字的頁面
+intitle: 搜尋網頁標題中包含某個關鍵字
+inanchor: 搜尋超連結文字中包含某個關鍵字
+allinanchor: 搜尋超連結（anchor text）中包含所有指定關鍵字的頁面
+related: 找出與某網站相關或類似的網站
+info: 顯示某網站的基本資訊（快取、相似頁面、連結）
 ```
 </details>
 
-## kali 基本建置
+# kali 基本建置
 
 <details>
   <summary>更新資料庫</summary>
