@@ -106,6 +106,69 @@ msfconsole
 ```
 </details>
 
+<details>
+  <summary>Module 04: Enumeration</summary>
+
+* Lab 1: NetBIOS Enumeration
+
+```console
+nbtstat -a [IP address of the remote machine]
+  -a: displays the NetBIOS name table
+nbtstat -c
+  -c: lists the contents of NetBIOS name cache
+net use
+  output displays information about the target such as connection status, shared folder/drive and network information
+```
+
+* Lab 2: SNMP Enumeration
+
+```console
+snmpwalk -v1 -c public [Target IP]
+  -v: specifies the SNMP version number (1 or 2c or 3)
+  -c: sets a community string
+  -v2c: 2c is selected
+```
+
+* Lab 4: NFS Enumeration
+
+```console
+nmap -p 2049 [Traget IP Address]
+  -p: specifies port
+```
+
+* Lab 5: DNS Enumeration
+
+```console
+dig ns [Traget Domain]
+  ns: returns name servers in the result
+dig @[NameServer] [Target Domain] axfr
+  axfr: retrieves zone information
+nslookup > set querytype=soa
+  querytype=soa: SOA (Start of Authority) record
+nslookup > ls -d [Name Server]
+  ls -d: requests a zone transfer of the specified name server
+```
+
+* Lab 6: SMTP Enumeration
+
+```console
+nmap -p 25 --script=smtp-enum-users [Target IP Address]
+  -p: specifies the port
+  --script: argument is used to run a given script (here, the script is smtp-enum-users)
+nmap -p 25 --script=smtp-open-relay [Target IP Address]
+  -p: specifies the port
+  –-script: argument is used to run a given script (here, the script is smtp-open-relay)
+nmap -p 25 --script=smtp-commands [Target IP Address]
+  p: specifies the port
+  –-script: argument is used to run a given script (here, the script is smtp-commands)
+```
+</details>
+
+<details>
+  <summary>Module 06: System Hacking</summary>
+
+</details>
+
 # kali 基本建置
 
 <details>
@@ -171,3 +234,9 @@ deactivate
 ```console
 D:\python\Scripts\pyinstaller.exe --onefile --windowed --name <輸出名稱> --icon logo.ico --add-binary "D:\chromedriver.exe;." --hidden-import=PyQt6.sip D:\exe.py
 ```
+* m2 l8-9
+* m3 l5-6
+* m4 l3-4、7-8
+* m5 l1-3
+* m6
+* m7
