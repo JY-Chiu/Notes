@@ -169,5 +169,5 @@ deactivate
 
 # python 打包指令
 ```console
-D:\python\Scripts\pyinstaller.exe --onefile --windowed --name <輸出名稱> --add-binary "D:\chromedriver.exe;." --hidden-import=PyQt6.sip D:\exe.py
+D:\python\Scripts\pyinstaller.exe --onefile --windowed --name <輸出名稱> --icon logo.ico --add-binary "D:\chromedriver.exe;." --hidden-import=PyQt6.sip D:\exe.py
 ```
