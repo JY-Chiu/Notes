@@ -12,7 +12,12 @@
   nmap -sn -PS 10.10.10.3-254
   nmap -sn -PA 10.10.10.3-254
   nmap -sn -PO 10.10.10.3-254
-  ```
+  ``` 
+</details>
+
+<details>
+  <summary>Lab 2</summary>
+
   ```console
   nmap -sT -v 10.10.1.22
   nmap -sS -v 10.10.1.22
@@ -20,6 +25,11 @@
   nmap -sM -v 10.10.1.22
   nmap -sA -v 10.10.1.22
   nmap -sU -v 10.10.1.22
-  nmap -sN -T4 -A -v
+  nmap -sN -T4 -A -v 10.10.1.9
+  nmap -sl -v
+  nmap -sY -v
+  nmap -sZ -v
+  nmap -sV
+  nmap -A (-O -sV -sC --traceroute)
   ```
 </details>
