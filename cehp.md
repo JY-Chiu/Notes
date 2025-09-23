@@ -182,4 +182,15 @@ adb shell
 
 su
 find / -name images.jpeg 2> /dev/null
+
+sha384sum /data/media/0/Download/images.jpeg
+
+mkdir /sdcard/data
+cp /data/media/0/Download/images.jpeg /sdcard/data
+ls /sdcard/data
+exit
+exit
+
+adb pull /sdcard/data/images.jpeg
+ls images.jpeg
 ```
