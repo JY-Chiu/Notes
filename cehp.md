@@ -151,6 +151,7 @@
   ```
 </details>
 
+```console
 ls /etc/passwd /etc/shadow
 mkdir unix
 cp /etc/passwd unix/passwd
@@ -170,4 +171,4 @@ ftp 10.10.10.10
 jason
 qwerty
 get Flag.txt
-
+```
