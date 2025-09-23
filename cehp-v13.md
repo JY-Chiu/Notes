@@ -33,3 +33,21 @@
   nmap -A (-O -sV -sC --traceroute)
   ```
 </details>
+
+<details>
+  <summary>Lab 3</summary>
+
+  ```console
+  nmap -A 10.10.1.22
+  nmap -O 10.10.1.22
+  nmap --script smb-os-discovery.nse 10.10.1.22
+  ```
+</details>
+
+<details>
+  <summary>Lab 4</summary>
+
+  ```console
+  
+  ```
+</details>
