@@ -13,4 +13,13 @@
   nmap -sn -PA 10.10.10.3-254
   nmap -sn -PO 10.10.10.3-254
   ```
+  ```console
+  nmap -sT -v 10.10.1.22
+  nmap -sS -v 10.10.1.22
+  nmap -sX -v 10.10.1.22
+  nmap -sM -v 10.10.1.22
+  nmap -sA -v 10.10.1.22
+  nmap -sU -v 10.10.1.22
+  nmap -sN -T4 -A -v
+  ```
 </details>
