@@ -166,6 +166,7 @@ john unix/pwdump.txt --show
 crackstation.net
 gchq.github.io/CyberChef/
 md5cal.com
+github.com/orsicp/DIE-engine
 
 ftp 10.10.10.10
 jason
