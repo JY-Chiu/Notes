@@ -200,4 +200,27 @@
   options set SOURCE certifiedhacker.com
   run
   ```
+  ```console
+  Task 2 Perrot
+  sudo maltego
+  ```
+  ```console
+  Task 3 Perrot
+  cd
+  domainfy -n eccouncil -t all
+  searchfy -q "Tim Cook"
+  ```
+  ```console
+  Task 5 Perrot
+  cd BillCipher
+  python3 billcipher.py
+  website
+  www.certifiedhacker.com
+  1、4、6、8、9
+  yes
+  website
+  www.certifiedhacker.com
+  19
+  yes
+  ```
 </details>
