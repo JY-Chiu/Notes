@@ -4,6 +4,7 @@
   <summary>Lab 1</summary>
 
   ```console
+  Tesk 1 Perrot
   nmap -sn -PR 10.10.10.3-254
   nmap -sn -PU 10.10.10.3-254
   nmap -sn -PE 10.10.10.3-254
@@ -19,6 +20,7 @@
   <summary>Lab 2</summary>
 
   ```console
+  Task 1 Perrot znmap
   nmap -sT -v 10.10.1.22
   nmap -sS -v 10.10.1.22
   nmap -sX -v 10.10.1.22
@@ -38,12 +40,128 @@
   <summary>Lab 3</summary>
 
   ```console
+  Task 1 Perrot
   nmap -A 10.10.1.22
   nmap -O 10.10.1.22
   nmap --script smb-os-discovery.nse 10.10.1.22
   ```
 </details>
 
+<details>
+  <summary>Lab 4</summary>
+
+  ```console
+  Task 1 Perrot
+  cd
+  nmap -f 10.10.1.11
+  nmap -g 80 10.10.1.11
+  nmap -mtu 8 10.10.1.11
+  nmap -D RND:10.10.1.11
+  nmap -sT -Pn --spoof-mac 0 10.10.1.11
+  ```
+</details>
+
+<details>
+  <summary>Lab 5</summary>
+
+  ```console
+  Task 1 Perrot
+  msfconsole
+  nmap -Pn -sS -A -oX Test 10.10.1.0/24
+  search portscan
+  use auxiliary/scanner/portscan/syn
+  set INTERFACE eth0
+  set PORTS 80
+  set RHOSTS 10.10.1.5-23
+  set THREADS 50
+  run
+  use auxiliary/scanner/portscan/tcp
+  show options
+  set RHOSTS 10.10.1.22
+  run
+  back
+  use auxiliary/scanner/smb/smb_version
+  set RHOSTS 10.10.1.5-23
+  set THREADS 11
+  run
+  ```
+</details>
+
+### Module 4
+
+<details>
+  <summary>Lab 1</summary>
+
+  ```console
+  Task 1 windows
+  nbtstat -a 10.10.1.11
+  nbtstat -c
+  net use
+  ```
+</details>
+
+<details>
+  <summary>Lab 2</summary>
+
+  ```console
+  snmpwalk -v1 -c public 10.10.1.22
+    -v：（1 or 2c or 3）
+  snmpwalk -v2c -c public 10.10.1.22
+  ```
+</details>
+
+<details>
+  <summary>Lab 4</summary>
+
+  ```console
+  Task 1 Perrot
+  nmap -p 2049 10.10.1.19
+  cd SuperEnum
+  echo "10.10.1.19" >> Target.txt
+  ./superenum
+    if error chmod +x superenum
+  cd RPCScan/
+  python3 rpc-scan.py 10.10.1.19 --rpc
+  ```
+</details>
+
+<details>
+  <summary>Lab 5</summary>
+
+  ```console
+  Task 1 Perrot
+  dig ns www.certifiedhacker.com
+  dig @ns1.bluehost.com. www.certifiedhacker.com axfr
+
+  windows
+  nslookup
+  set querytype=soa
+  certifiedhacker.com
+  ls -d ns1.bluehost.com
+  ```
+</details>
+
+<details>
+  <summary>Lab 6</summary>
+
+  ```console
+  Task 1 Perrot
+  nmap -p25 --script=smtp-enum-users 10.10.1.19
+  nmap -p25 --script=smtp-open-relay 10.10.1.19
+  nmap -p25 --script=smtp-commands 10.10.1.19
+  ```
+</details>
+
+### Module 5
+
+<details>
+  <summary>Lab 1</summary>
+</details>
+
+
+
+
+# 以下v12待整理
 <details>
   <summary>Lab 4</summary>
 
@@ -221,6 +339,7 @@
   website
   www.certifiedhacker.com
   19
-  yes
+  no
+  打開資料夾BillCipher index.html
   ```
 </details>
