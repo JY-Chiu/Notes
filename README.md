@@ -240,3 +240,5 @@ D:\python\Scripts\pyinstaller.exe --onefile --windowed --name <輸出名稱> --i
 * m5 l1-3
 * m6
 * m7
+* test 8
+* t8
